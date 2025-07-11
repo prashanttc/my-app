@@ -35,7 +35,11 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${sora.variable} ${michroma.variable} antialiased`}
     >
-      <body>{children}</body>
+      <body>
+      {/* <LenisProvider> */}
+        {children}
+      {/* </LenisProvider> */}
+      </body>
     </html>
   );
 }

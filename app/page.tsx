@@ -1,30 +1,30 @@
 "use client";
+
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollSmoother } from "gsap/ScrollSmoother";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { DATA } from "../constant/index";
-import { useRef } from "react";
+import { Dock, DockIcon } from "@/components/magicui/dock";
 import {
   Tooltip,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { TooltipContent } from "@radix-ui/react-tooltip";
-import { Dock, DockIcon } from "@/components/magicui/dock";
 import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
-import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+import { DATA } from "../constant/index";
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
-gsap.registerPlugin(ScrollTrigger);
-gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 export default function Home() {
-  const triggerRef = useRef(null);
-  const dockRef = useRef(null);
+  const triggerRef = useRef<HTMLDivElement>(null);
+  const dockRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-    // HERO SCALE OUT
+    // HERO section blur + fade
     gsap.set(".scroll-trigger-hero", {
       willChange: "transform, opacity, filter",
       transformOrigin: "center center",
@@ -40,43 +40,30 @@ export default function Home() {
         },
       })
       .to(".scroll-trigger-hero", {
-        scale: 1.6,
         opacity: 0,
-        filter: "blur(40px)",
+        duration:1,
         ease: "power3.inOut",
       });
 
     ScrollTrigger.create({
       trigger: ".trigger",
       start: "top center",
-      end: "bottom center",
+      end: "top top",
       onEnter: () => {
-        gsap.to(".fade-up-header", {
-          duration: 0.6,
-          ease: "power2.out",
-          onComplete: () => {
-            const header = document.querySelector(".fade-up-header");
-            header?.classList.add("bg-black/60", "backdrop-blur");
-          },
-        });
+        const header = document.querySelector(".fade-up-header");
+        if (header) {
+          header.classList.add("bg-white/10", "backdrop-blur-md");
+        }
       },
       onLeaveBack: () => {
-        gsap.to(".fade-up-header", {
-          y: 0,
-          duration: 0.6,
-          ease: "power2.inOut",
-          onComplete: () => {
-            const header = document.querySelector(".fade-up-header");
-            header?.classList.remove(
-              "bg-black/60",
-              "backdrop-blur",
-              "border-b",
-              "border-gold/20"
-            );
-          },
-        });
+        const header = document.querySelector(".fade-up-header");
+        if (header) {
+          header.classList.remove("bg-black/60", "backdrop-blur");
+        }
       },
     });
+
+    // DOCK reveal animation
     ScrollTrigger.create({
       trigger: triggerRef.current,
       start: "top 30%",
@@ -101,53 +88,23 @@ export default function Home() {
       },
     });
   }, []);
-useGSAP(() => {
-  const sections = gsap.utils.toArray<HTMLElement>(".snap-section");
-  let isScrolling = false;
-
-  sections.forEach((section) => {
-    ScrollTrigger.create({
-      trigger: section,
-      start: "top center",
-      end: "bottom center",
-      onEnter: () => snapToSection(section),
-      onEnterBack: () => snapToSection(section),
-    });
-  });
-
-  function snapToSection(target: HTMLElement) {
-    if (isScrolling) return;
-    isScrolling = true;
-
-    gsap.to(window, {
-      scrollTo: { y: target, autoKill: false },
-      duration: 1,
-      ease: "power2.out",
-      onComplete: () => {
-        isScrolling = false;
-      },
-    });
-  }
-}, []);
-;
 
   return (
     <div className="min-h-screen w-screen bg-black text-white flex flex-col relative overflow-hidden">
-      {/* glowing blurs */}
+      {/* Glow effects */}
       <div className="absolute top-0 right-[-120px] w-[600px] h-[300px] rounded-full bg-gold opacity-40 blur-[180px] z-10" />
       <div className="absolute top-200 left-[-120px] w-[600px] h-[300px] rounded-full bg-gold opacity-40 blur-[180px] z-10" />
       <Header />
-      {/* HERO SECTION */}
-      <div className="scroll-trigger-hero w-full h-screen snap-section">
+      {/* HERO Section */}
+      <div className="scroll-trigger-hero w-full h-screen ">
         <Hero />
       </div>
-      {/* MAIN SECTION */}
+
+      {/* Main Section */}
       <div
         ref={triggerRef}
-        className="w-full h-[1120px] trigger bg-black relative snap-section"
+        className="w-full h-[1120px] trigger bg-black relative "
       >
-        <div className="absolute bottom-0 right-1/2 w-[200px] h-[200px] rounded-full bg-gold opacity-40 blur-[180px] z-1" />
-
         <div
           id="dock-wrapper"
           ref={dockRef}
