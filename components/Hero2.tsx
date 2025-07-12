@@ -36,8 +36,8 @@ const Hero2 = () => {
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: textRef.current, 
-      start: "top 140%",
-      end: "top -30%",
+      start: "top center",
+      end: "bottom center",
       toggleActions: "play reverse play reverse",
     },
   });
@@ -46,7 +46,7 @@ const Hero2 = () => {
     tl.fromTo(
       el,
       { opacity: 0, x: -60 },
-      { opacity: 1, x: 0, duration: 0.5, ease: "power4.inOut" },
+      { opacity: 1, x: 0, duration: 0.3, ease: "power4.inOut",stagger:0.3 },
     );
   });
 
@@ -119,7 +119,7 @@ const Hero2 = () => {
 
       <div
         ref={textRef}
-        className="w-full flex flex-col lg:flex-row md:h-screen mb-10 md:mb-0 mt-20 gap-10 lg:gap-0 px-4 lg:px-0 "
+        className="w-full  flex flex-col lg:flex-row md:h-screen mb-10 md:mb-0 mt-20 gap-10 lg:gap-0 px-4 lg:px-0 "
       >
         {/* Left Side */}
         <div className="flex  flex-col gap-6 p-5 lg:p-10 w-full lg:w-[65%]  justify-center items-center md:items-start">
