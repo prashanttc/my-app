@@ -10,6 +10,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import CardSwap, { Card } from "./CardSwap/CardSwap";
 import { Separator } from "./ui/separator";
 import { Button } from "./ui/button";
+import Orb from "./Orb/Orb";
 gsap.registerPlugin(ScrollTrigger);
 const Hero2 = () => {
   const containerRef = useRef(null);
@@ -32,25 +33,25 @@ const Hero2 = () => {
         },
       }
     );
-   const targets = gsap.utils.toArray(".text-stagger");
-  targets.forEach((el:any) => {
-    gsap.fromTo(
-      el,
-      { opacity: 0, x: -60 },
-      {
-        opacity: 1,
-        x: 0,
-        duration: 0.8,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: el,
-          start: "top 60%",
-          end: "top 20%",
-          toggleActions: "play reverse play reverse", 
-        },
-      }
-    );
-  })
+    const targets = gsap.utils.toArray(".text-stagger");
+    targets.forEach((el: any) => {
+      gsap.fromTo(
+        el,
+        { opacity: 0, x: -60 },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: el,
+            start: "top 60%",
+            end: "top 10%",
+            toggleActions: "play reverse play reverse",
+          },
+        }
+      );
+    });
   }, []);
   return (
     <div className="w-full min-h-screen flex flex-col pt-32 gap-20 relative">
@@ -119,7 +120,7 @@ const Hero2 = () => {
             <span className="text-gold font-michroma-base">go3dlab</span>
           </h1>
           <Separator className="w-1/2 bg-gold" />
-          <p className="text-base text-white/80 font-inter-base text-center  text-stagger">
+          <p className="text-base text-white/80 font-inter-base md:text-start text-center  text-stagger">
             We deliver high-quality 3D printing at the most competitive prices
             in the market — no compromises, no shortcuts. Don’t have a ready
             model? Our expert designers will craft one for you from scratch,
@@ -137,7 +138,7 @@ const Hero2 = () => {
 
         {/* Right Side */}
         <div className="w-[40%] hidden lg:flex h-full  rounded-2xl relative overflow-hidden">
-          <CardSwap
+          {/* <CardSwap
             cardDistance={60}
             verticalDistance={70}
             delay={5000}
@@ -162,7 +163,13 @@ const Hero2 = () => {
                 </div>
               </Card>
             ))}
-          </CardSwap>
+          </CardSwap> */}
+          <Orb
+            hoverIntensity={1}
+            rotateOnHover={true}
+            hue={5}
+            forceHoverState={false}
+          />
         </div>
       </div>
 
