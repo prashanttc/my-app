@@ -1,13 +1,12 @@
 "use client";
 import React, { useRef } from "react";
 import RotatingText from "./RotatingText/RotatingText";
-import { ArrowUpRight, Code } from "lucide-react";
-import { boxes, videoBox } from "@/constant/index";
+import { ArrowUpRight } from "lucide-react";
+import { boxes } from "@/constant/index";
 import Link from "next/link";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import CardSwap, { Card } from "./CardSwap/CardSwap";
 import { Separator } from "./ui/separator";
 import { Button } from "./ui/button";
 import Orb from "./Orb/Orb";
@@ -150,32 +149,6 @@ const Hero2 = () => {
 
         {/* Right Side */}
         <div className="w-[40%] hidden orb lg:flex h-full  rounded-2xl relative overflow-hidden">
-          {/* <CardSwap
-            cardDistance={60}
-            verticalDistance={70}
-            delay={5000}
-            pauseOnHover={false}
-            easing="elastic"
-            skewAmount={6}
-          >
-            {videoBox.map((box) => (
-              <Card className="rounded-xl text-white" key={box.src}>
-                <div className="h-12 rounded-t-xl border-b bg-black border flex gap-5 items-center px-5">
-                  {box.icon} {box.heading}
-                </div>
-                <div className="w-full h-[88%] rounded-2xl overflow-hidden">
-                  <video
-                    className="object-cover w-full h-full"
-                    src={box.src}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                  />
-                </div>
-              </Card>
-            ))}
-          </CardSwap> */}
           <Orb
             hoverIntensity={1}
             rotateOnHover={true}
