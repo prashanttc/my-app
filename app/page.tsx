@@ -18,6 +18,7 @@ import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
 import { DATA } from "../constant/index";
 import Hero2 from "@/components/Hero2";
+import DockBox from "@/components/DockBox";
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 export default function Home() {
@@ -42,7 +43,7 @@ export default function Home() {
       })
       .to(".scroll-trigger-hero", {
         opacity: 0,
-        duration:1,
+        duration: 1,
         ease: "power3.inOut",
       });
 
@@ -95,62 +96,22 @@ export default function Home() {
       {/* Glow effects */}
       <div className="absolute top-0 right-[-120px] w-[600px] h-[300px] rounded-full bg-gold opacity-40 blur-[180px] z-10" />
       <div className="absolute top-200 left-[-120px] w-[600px] h-[300px] rounded-full bg-gold opacity-40 blur-[180px] z-10" />
-
       <Header />
-      {/* HERO Section */}
       <div className="scroll-trigger-hero w-full h-screen ">
         <Hero />
       </div>
-
-      {/* Main Section */}
+      <div ref={triggerRef} className="w-full h-full trigger relative ">
+        <Hero2 />
+      </div>
+      <div className="w-full h-[1120px] relative ">
+  hi
+      </div>
       <div
-        ref={triggerRef}
-        className="w-full h-full trigger relative "
+        id="dock-wrapper"
+        ref={dockRef}
+        className="fixed bottom-5 left-0 right-0 z-50 opacity-0 pointer-events-none translate-y-[100px]"
       >
-        <Hero2/>
-        <div
-          id="dock-wrapper"
-          ref={dockRef}
-          className="fixed bottom-5 left-0 right-0 z-50 opacity-0 pointer-events-none translate-y-[100px]"
-        >
-          <TooltipProvider>
-            <Dock
-              direction="middle"
-              className="bg-white/10 backdrop-blur-md rounded-xl shadow-lg border-none"
-            >
-              {DATA.navbar.map((item) => (
-                <DockIcon key={item.label}>
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <Link href={item.href} aria-label={item.label}>
-                        <item.icon className="size-4" />
-                      </Link>
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <p>{item.label}</p>
-                    </TooltipContent>
-                  </Tooltip>
-                </DockIcon>
-              ))}
-              <Separator orientation="vertical" className="h-full" />
-              {Object.entries(DATA.contact.social).map(([name, social]) => (
-                <DockIcon key={name}>
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <Link href={social.url} aria-label={social.name}>
-                        <social.icon className="size-4" />
-                      </Link>
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <p>{name}</p>
-                    </TooltipContent>
-                  </Tooltip>
-                </DockIcon>
-              ))}
-            </Dock>
-          </TooltipProvider>
-        </div>
-
+        <DockBox />
       </div>
     </div>
   );

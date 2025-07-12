@@ -32,27 +32,39 @@ const Hero2 = () => {
           once: true,
         },
       }
+    );}, []);
+    useGSAP(() => {
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: textRef.current, 
+      start: "top 140%",
+      end: "top -30%",
+      toggleActions: "play reverse play reverse",
+    },
+  });
+  const targets = gsap.utils.toArray(".text-stagger");
+  targets.forEach((el: any) => {
+    tl.fromTo(
+      el,
+      { opacity: 0, x: -60 },
+      { opacity: 1, x: 0, duration: 0.5, ease: "power4.inOut" },
     );
-    const targets = gsap.utils.toArray(".text-stagger");
-    targets.forEach((el: any) => {
-      gsap.fromTo(
-        el,
-        { opacity: 0, x: -60 },
-        {
-          opacity: 1,
-          x: 0,
-          duration: 0.8,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: el,
-            start: "top 60%",
-            end: "top 10%",
-            toggleActions: "play reverse play reverse",
-          },
-        }
-      );
-    });
-  }, []);
+  });
+
+  tl.fromTo(
+    ".orb",
+    { opacity: 0, scale: 0.8 },
+    { opacity: 1, scale: 1, duration: 0.4, ease: "power3.out" },
+    "-=0.5" 
+  );
+  tl.fromTo(
+    ".cta-button",
+    { y: 50, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.6, ease: "back.out(1.7)" },
+    "+=0.2"
+  );
+}, []);
+
   return (
     <div className="w-full min-h-screen flex flex-col pt-32 gap-20 relative">
       <div className="hidden md:flex absolute bottom-0 left-[-120px] w-[600px] h-[300px] rounded-full bg-gold opacity-40 blur-[180px] z-10" />
@@ -108,10 +120,10 @@ const Hero2 = () => {
 
       <div
         ref={textRef}
-        className="w-full flex flex-col lg:flex-row h-screen mt-20 gap-10 lg:gap-0 px-4 lg:px-0"
+        className="w-full flex flex-col lg:flex-row md:h-screen mb-10 md:mb-0 mt-20 gap-10 lg:gap-0 px-4 lg:px-0 "
       >
         {/* Left Side */}
-        <div className="flex  flex-col gap-6 p-5 lg:p-10 w-full lg:w-[65%]  justify-center  items-center md:items-start">
+        <div className="flex  flex-col gap-6 p-5 lg:p-10 w-full lg:w-[65%]  justify-center items-center md:items-start">
           <p className="text-xs text-stagger tracking-widest uppercase text-white font-sora-base">
             Affordable • Quality • Trusted
           </p>
@@ -129,7 +141,7 @@ const Hero2 = () => {
             reliability.
           </p>
           <Button
-            className="w-fit p-4 text-stagger bg-white mt-10 text-black font-michroma-base"
+            className="w-fit p-4 cta-button bg-white mt-10 text-black font-michroma-base"
             variant="outline"
           >
             Contact Us
@@ -137,7 +149,7 @@ const Hero2 = () => {
         </div>
 
         {/* Right Side */}
-        <div className="w-[40%] hidden lg:flex h-full  rounded-2xl relative overflow-hidden">
+        <div className="w-[40%] hidden orb lg:flex h-full  rounded-2xl relative overflow-hidden">
           {/* <CardSwap
             cardDistance={60}
             verticalDistance={70}
@@ -172,8 +184,6 @@ const Hero2 = () => {
           />
         </div>
       </div>
-
-      <div className="w-full h-[112px]">hi</div>
     </div>
   );
 };
