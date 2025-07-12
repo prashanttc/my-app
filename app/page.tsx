@@ -17,6 +17,7 @@ import { TooltipContent } from "@radix-ui/react-tooltip";
 import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
 import { DATA } from "../constant/index";
+import Hero2 from "@/components/Hero2";
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 export default function Home() {
@@ -58,7 +59,7 @@ export default function Home() {
       onLeaveBack: () => {
         const header = document.querySelector(".fade-up-header");
         if (header) {
-          header.classList.remove("bg-black/60", "backdrop-blur");
+          header.classList.remove("bg-white/10", "backdrop-blur-md");
         }
       },
     });
@@ -94,6 +95,7 @@ export default function Home() {
       {/* Glow effects */}
       <div className="absolute top-0 right-[-120px] w-[600px] h-[300px] rounded-full bg-gold opacity-40 blur-[180px] z-10" />
       <div className="absolute top-200 left-[-120px] w-[600px] h-[300px] rounded-full bg-gold opacity-40 blur-[180px] z-10" />
+
       <Header />
       {/* HERO Section */}
       <div className="scroll-trigger-hero w-full h-screen ">
@@ -103,8 +105,9 @@ export default function Home() {
       {/* Main Section */}
       <div
         ref={triggerRef}
-        className="w-full h-[1120px] trigger bg-black relative "
+        className="w-full h-full trigger relative "
       >
+        <Hero2/>
         <div
           id="dock-wrapper"
           ref={dockRef}
@@ -148,9 +151,6 @@ export default function Home() {
           </TooltipProvider>
         </div>
 
-        <div className="text-center pt-40 text-xl">
-          Welcome to the next section 🚀
-        </div>
       </div>
     </div>
   );
