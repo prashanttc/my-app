@@ -16,9 +16,10 @@ import {
 import { TooltipContent } from "@radix-ui/react-tooltip";
 import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
-import { DATA } from "../constant/index";
+import { DATA, products } from "../constant/index";
 import Hero2 from "@/components/Hero2";
 import DockBox from "@/components/DockBox";
+import InfiniteMenu from "@/components/InfiniteMenu/InfiniteMenu";
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 export default function Home() {
@@ -64,8 +65,6 @@ export default function Home() {
         }
       },
     });
-
-    // DOCK reveal animation
     ScrollTrigger.create({
       trigger: triggerRef.current,
       start: "top 30%",
@@ -103,8 +102,9 @@ export default function Home() {
       <div ref={triggerRef} className="w-full h-full trigger relative ">
         <Hero2 />
       </div>
-      <div className="w-full h-[1120px] relative ">
-  hi
+      <div className=" floating-menu w-full h-screen bg-red-300 relative ">
+        <div>hii booo</div>
+        <InfiniteMenu items={products} />
       </div>
       <div
         id="dock-wrapper"

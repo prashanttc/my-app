@@ -52,7 +52,7 @@ const Header = () => {
   })
   return (
     <div className="fade-up-header opacity-0 h-[60px] fixed w-full hidden sm:flex justify-between  items-center z-[99] text-white px-5 transition-all duration-500">
-      <h1 className="text-white font-michroma-base text-2xl">go3d lab</h1>
+      <Link href={"#hero"} className="text-white font-michroma-base text-2xl">go3d lab</Link>
 
       <div className="hover:cursor-pointer h-[50px] rounded-3xl flex header items-center justify-evenly gap-10 px-10 text-white font-michroma-base">
         {nav.map((item) => {

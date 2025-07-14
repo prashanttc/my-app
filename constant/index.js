@@ -93,3 +93,31 @@ export const videoBox = [
     src: "v3.mp4",
   },
 ];
+
+
+export const products = [
+  {
+    image: 'https://picsum.photos/seed/phone-stand/300/300?grayscale',
+    link: 'https://yourstore.com/3d-phone-stand',
+    title: '3D Printed Phone Stand',
+    description: 'A sleek, durable phone stand designed for desk setups. Lightweight, portable, and customizable.'
+  },
+  {
+    image: 'https://picsum.photos/seed/planter/400/400?grayscale',
+    link: 'https://yourstore.com/3d-mini-planter',
+    title: 'Geometric Planter',
+    description: 'Minimalist 3D printed planter perfect for succulents or desk plants. Adds a modern touch to any space.'
+  },
+  {
+    image: 'https://picsum.photos/seed/tool-holder/500/500?grayscale',
+    link: 'https://yourstore.com/3d-tool-holder',
+    title: 'Modular Tool Holder',
+    description: 'A customizable tool organizer for DIYers. Snap-fit compartments built for efficiency and space-saving.'
+  },
+  {
+    image: 'https://picsum.photos/seed/lamp-shade/600/600?grayscale',
+    link: 'https://yourstore.com/3d-lamp-shade',
+    title: 'Custom Lamp Shade',
+    description: 'Unique, 3D printed lamp shade that casts ambient patterns. Designed to elevate your room aesthetics.'
+  }
+];
