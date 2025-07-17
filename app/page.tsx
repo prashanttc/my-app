@@ -7,19 +7,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import { Dock, DockIcon } from "@/components/magicui/dock";
-import {
-  Tooltip,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-import { TooltipContent } from "@radix-ui/react-tooltip";
-import { Separator } from "@/components/ui/separator";
-import Link from "next/link";
-import { DATA, products } from "../constant/index";
 import Hero2 from "@/components/Hero2";
 import DockBox from "@/components/DockBox";
-import InfiniteMenu from "@/components/InfiniteMenu/InfiniteMenu";
+import { HeroParallaxDemo } from "@/components/Product";
+import { Testimonials } from "@/components/Testimonial";
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 export default function Home() {
@@ -27,7 +18,6 @@ export default function Home() {
   const dockRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-    // HERO section blur + fade
     gsap.set(".scroll-trigger-hero", {
       willChange: "transform, opacity, filter",
       transformOrigin: "center center",
@@ -44,7 +34,7 @@ export default function Home() {
       })
       .to(".scroll-trigger-hero", {
         opacity: 0,
-        duration: 1,
+        duration: 0.3,
         ease: "power3.inOut",
       });
 
@@ -102,10 +92,8 @@ export default function Home() {
       <div ref={triggerRef} className="w-full h-full trigger relative ">
         <Hero2 />
       </div>
-      <div className=" floating-menu w-full h-screen bg-red-300 relative ">
-        <div>hii booo</div>
-        <InfiniteMenu items={products} />
-      </div>
+      <HeroParallaxDemo />
+      <Testimonials/>
       <div
         id="dock-wrapper"
         ref={dockRef}

@@ -97,27 +97,95 @@ export const videoBox = [
 
 export const products = [
   {
-    image: 'https://picsum.photos/seed/phone-stand/300/300?grayscale',
+    thumbnail: 'https://picsum.photos/seed/phone-stand/300/300?grayscale',
     link: 'https://yourstore.com/3d-phone-stand',
     title: '3D Printed Phone Stand',
     description: 'A sleek, durable phone stand designed for desk setups. Lightweight, portable, and customizable.'
   },
   {
-    image: 'https://picsum.photos/seed/planter/400/400?grayscale',
+    thumbnail: 'https://picsum.photos/seed/planter/400/400?grayscale',
     link: 'https://yourstore.com/3d-mini-planter',
     title: 'Geometric Planter',
     description: 'Minimalist 3D printed planter perfect for succulents or desk plants. Adds a modern touch to any space.'
   },
   {
-    image: 'https://picsum.photos/seed/tool-holder/500/500?grayscale',
+    thumbnail: 'https://picsum.photos/seed/tool-holder/500/500?grayscale',
     link: 'https://yourstore.com/3d-tool-holder',
     title: 'Modular Tool Holder',
     description: 'A customizable tool organizer for DIYers. Snap-fit compartments built for efficiency and space-saving.'
   },
   {
-    image: 'https://picsum.photos/seed/lamp-shade/600/600?grayscale',
+    thumbnail: 'https://picsum.photos/seed/lamp-shade/600/600?grayscale',
     link: 'https://yourstore.com/3d-lamp-shade',
     title: 'Custom Lamp Shade',
     description: 'Unique, 3D printed lamp shade that casts ambient patterns. Designed to elevate your room aesthetics.'
-  }
+  },
+  {
+    thumbnail: 'https://picsum.photos/seed/phone-stand/300/300?grayscale',
+    link: 'https://yourstore.com/3d-phone-stand',
+    title: '3D Printed Phone Stand',
+    description: 'A sleek, durable phone stand designed for desk setups. Lightweight, portable, and customizable.'
+  },
+  {
+    thumbnail: 'https://picsum.photos/seed/planter/400/400?grayscale',
+    link: 'https://yourstore.com/3d-mini-planter',
+    title: 'Geometric Planter',
+    description: 'Minimalist 3D printed planter perfect for succulents or desk plants. Adds a modern touch to any space.'
+  },
+  {
+    thumbnail: 'https://picsum.photos/seed/tool-holder/500/500?grayscale',
+    link: 'https://yourstore.com/3d-tool-holder',
+    title: 'Modular Tool Holder',
+    description: 'A customizable tool organizer for DIYers. Snap-fit compartments built for efficiency and space-saving.'
+  },
+  {
+    thumbnail: 'https://picsum.photos/seed/lamp-shade/600/600?grayscale',
+    link: 'https://yourstore.com/3d-lamp-shade',
+    title: 'Custom Lamp Shade',
+    description: 'Unique, 3D printed lamp shade that casts ambient patterns. Designed to elevate your room aesthetics.'
+  },
+  {
+    thumbnail: 'https://picsum.photos/seed/phone-stand/300/300?grayscale',
+    link: 'https://yourstore.com/3d-phone-stand',
+    title: '3D Printed Phone Stand',
+    description: 'A sleek, durable phone stand designed for desk setups. Lightweight, portable, and customizable.'
+  },
+  {
+    thumbnail: 'https://picsum.photos/seed/planter/400/400?grayscale',
+    link: 'https://yourstore.com/3d-mini-planter',
+    title: 'Geometric Planter',
+    description: 'Minimalist 3D printed planter perfect for succulents or desk plants. Adds a modern touch to any space.'
+  },
+  {
+    thumbnail: 'https://picsum.photos/seed/tool-holder/500/500?grayscale',
+    link: 'https://yourstore.com/3d-tool-holder',
+    title: 'Modular Tool Holder',
+    description: 'A customizable tool organizer for DIYers. Snap-fit compartments built for efficiency and space-saving.'
+  },
+  {
+    thumbnail: 'https://picsum.photos/seed/lamp-shade/600/600?grayscale',
+    link: 'https://yourstore.com/3d-lamp-shade',
+    title: 'Custom Lamp Shade',
+    description: 'Unique, 3D printed lamp shade that casts ambient patterns. Designed to elevate your room aesthetics.'
+  },
+];
+export const reviews = [
+  {
+    name: "Jack",
+    username: "@jack",
+    body: "I've never seen anything like this before. It's amazing. I love it.",
+    img: "https://avatar.vercel.sh/jack",
+  },
+  {
+    name: "Jill",
+    username: "@jill",
+    body: "I don't know what to say. I'm speechless. This is amazing.",
+    img: "https://avatar.vercel.sh/jill",
+  },
+  {
+    name: "John",
+    username: "@john",
+    body: "I'm at a loss for words. This is amazing. I love it.",
+    img: "https://avatar.vercel.sh/john",
+  },
 ];

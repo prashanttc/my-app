@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { nav } from "../constant/index";
 import Services from "./nav-items/Services";
 import { useGSAP } from "@gsap/react";
+import { Button } from "./ui/button";
 
 const drawerLabels = ["Services", "Products"];
 const Header = () => {
@@ -51,10 +52,10 @@ const Header = () => {
     })
   })
   return (
-    <div className="fade-up-header opacity-0 h-[60px] fixed w-full hidden sm:flex justify-between  items-center z-[99] text-white px-5 transition-all duration-500">
+    <div className="fade-up-header  opacity-0 h-[60px] fixed w-full hidden sm:flex justify-between  items-center z-[99] text-white md:px-16 lg:px-20 transition-all duration-500">
       <Link href={"#hero"} className="text-white font-michroma-base text-2xl">go3d lab</Link>
 
-      <div className="hover:cursor-pointer h-[50px] rounded-3xl flex header items-center justify-evenly gap-10 px-10 text-white font-michroma-base">
+      <div className="hover:cursor-pointer h-[50px] rounded-3xl mr-10 flex header items-center justify-evenly gap-10 px-10 text-white font-michroma-base">
         {nav.map((item) => {
           const shouldShowDrawer = drawerLabels.includes(item.label);
 
@@ -94,7 +95,7 @@ const Header = () => {
         )}
       </div>
 
-      <h1 className="text-white font-bold font-michroma-base text-sm">Login</h1>
+      <Button variant="ghost" className="text-white cursor-pointer w-[130px] font-bold font-michroma-base text-sm bg-gradient-to-l from-[#6a4e00] to-[#facc15] px-4 rounded-4xl flex  items-center justify-center">Login</Button>
     </div>
   );
 };
