@@ -41,8 +41,8 @@ export function Testimonials() {
       stagger: 0.2, 
       scrollTrigger:{
         trigger: ".hii",
-        start: "top center",
-        end: "bottom 80%",
+        start: "top top",
+        end: "bottom top",
         toggleActions: "play none none none",
       }
     });
@@ -53,18 +53,12 @@ export function Testimonials() {
 
       <div className="md:w-1/2 h-full flex items-center justify-center font-michroma-base relative hii">
         <div className="relative flex md:h-[40rem] w-full overflow-hidden rounded-md md:bg-black/[0.96] antialiased md:items-center md:justify-center">
-          <div
-            className={cn(
-              "pointer-events-none absolute inset-0 [background-size:40px_40px] select-none hidden md:flex",
-              "[background-image:linear-gradient(to_right,#171717_1px,transparent_1px),linear-gradient(to_bottom,#171717_1px,transparent_1px)]"
-            )}
-          />
           <Spotlight
             className=" -left-50 -top-100 animate-spotlight"
             fill="gold"
           />
           <div className="relative z-10 mx-auto w-full max-w-7xl p-4 pt-20 md:pt-0">
-            <h1 className="bg-opacity-50 bg-gradient-to-b from-neutral-50 to-neutral-400 bg-clip-text text-center text-2xl font-bold text-transparent md:text-5xl animate-text">
+            <h1 className="bg-opacity-50 bg-gradient-to-b from-neutral-50 to-neutral-400 bg-clip-text text-center  font-bold text-transparent text-3xl md:text-5xl animate-text">
               Crafting <span className="text-gold"> Tomorrow </span>: <br /> Our Client Narratives.
             </h1>
             <p className="mx-auto mt-5 max-w-lg text-center text-base font-sora-base text-neutral-300  animate-text">
