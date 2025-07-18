@@ -11,6 +11,7 @@ import Hero2 from "@/components/Hero2";
 import DockBox from "@/components/DockBox";
 import { HeroParallaxDemo } from "@/components/Product";
 import { Testimonials } from "@/components/Testimonial";
+import Footer from "@/components/Footer";
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 export default function Home() {
@@ -94,6 +95,7 @@ export default function Home() {
       </div>
       <HeroParallaxDemo />
       <Testimonials/>
+      <Footer/>
       <div
         id="dock-wrapper"
         ref={dockRef}

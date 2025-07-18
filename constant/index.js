@@ -171,21 +171,31 @@ export const products = [
 ];
 export const reviews = [
   {
-    name: "Jack",
-    username: "@jack",
-    body: "I've never seen anything like this before. It's amazing. I love it.",
-    img: "https://avatar.vercel.sh/jack",
+    name: "Aditya singh Parihar",
+    body: "The printing quality is great, and their support is very helpful! Thanks Go3dlab to print this case for my project.",
   },
   {
-    name: "Jill",
-    username: "@jill",
-    body: "I don't know what to say. I'm speechless. This is amazing.",
-    img: "https://avatar.vercel.sh/jill",
+    name: "Rohit Patidar",
+    body: "I loved their work! They made my idea cime to life with great precision. Totally worth it.",
   },
   {
-    name: "John",
-    username: "@john",
-    body: "I'm at a loss for words. This is amazing. I love it.",
-    img: "https://avatar.vercel.sh/john",
+    name: "Ashish Phulmali",
+    body: "Good experience. 3d printing at affordable rates. Thank you Go3D Lab",
+  },
+  {
+    name: "Avanindra Pandey",
+    body: "These guys give very high quality prints, and have a very professional way of dealing. The service is fast and exceeded all my expectations. Would recommend.",
+  },
+  {
+    name: "satyajit suvankar",
+    body: "Amazing quality 3D print. Good service and behaviour.",
+  },
+  {
+    name: "Nandini Panwar",
+    body: "The 3D-printed owl is detailed, well-crafted, and durable. The service was prompt and met expectations perfectly. Highly recommended!.",
+  },
+  {
+    name: "Deepika Ghelot",
+    body: "Perfectionist in fdm and resin printing",
   },
 ];

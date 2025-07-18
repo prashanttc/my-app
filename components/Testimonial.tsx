@@ -11,22 +11,17 @@ const firstRow = reviews.slice(0, reviews.length / 2);
 const secondRow = reviews.slice(reviews.length / 2);
 
 const ReviewCard = ({
-  img,
   name,
-  username,
   body,
 }: {
-  img: string;
   name: string;
-  username: string;
   body: string;
 }) => {
   return <div className="w-[300px] h-[200px] rounded-2xl  bg-white/10">
-    <div className="w-full h-full bg-gradient-to-br from-white/10 via-black/30  to-white/20 rounded-2xl p-5 flex flex-col justify-evenly">
-    <h1 className="text-white/60 font-inter-light">{body}</h1>
+    <div className="w-full h-full bg-gradient-to-br from-white/10 via-black/30 relative to-white/20 rounded-2xl p-5 flex flex-col justify-evenly">
+    <h1 className="text-white/80 text-sm font-inter-light">{body}</h1>
   <div className="flex gap-3 items-center">
-       <Image src={img} height={40} width={40} alt="image" className="rounded-full"/>
-       <h1 className="text-white font-michroma-base">{name}</h1></div>
+       <h1 className="text-white/50 font-michroma-base text-md absolute bottom-5 text-sm right-3">- {name}</h1></div>
        </div>
   </div>;
 };
@@ -71,24 +66,24 @@ export function Testimonials() {
       <div className="md:flex relative overflow-hidden hidden w-1/2  h-screen items-center justify-center">
         <Marquee pauseOnHover vertical className="[--duration:20s]">
           {firstRow.map((review) => (
-            <ReviewCard key={review.username} {...review} />
+            <ReviewCard key={review.name} {...review} />
           ))}
         </Marquee>
         <Marquee reverse pauseOnHover vertical className="[--duration:20s]">
           {secondRow.map((review) => (
-            <ReviewCard key={review.username} {...review} />
+            <ReviewCard key={review.name} {...review} />
           ))}
         </Marquee>
       </div>
       <div className="flex relative flex-col overflow-hidden md:hidden h-screen ">
         <Marquee   className="[--duration:20s]">
           {firstRow.map((review) => (
-            <ReviewCard key={review.username} {...review} />
+            <ReviewCard key={review.name} {...review} />
           ))}
         </Marquee>
         <Marquee reverse   className="[--duration:20s]">
           {secondRow.map((review) => (
-            <ReviewCard key={review.username} {...review} />
+            <ReviewCard key={review.name} {...review} />
           ))}
         </Marquee>
       </div>
